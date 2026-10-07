@@ -31,6 +31,10 @@ let Oda  = {
     }
 };
 
+Yamada.info();
+Tanaka.info();
+Oda.info();
+
 function experienceBonus(person){
  if (person.experience>=1 && person.experience<5) {
     return person.salary * 1.01;
@@ -61,19 +65,30 @@ function calculateBonus(employee){
     return employeeBonus;
 }
 
+console.log("----");
 console.log("Bonus cua", Yamada.name, ":", calculateBonus(Yamada) );
 console.log("Bonus cua", Tanaka.name, ":", calculateBonus(Tanaka));
 console.log("Bonus cua", Oda.name, ":", calculateBonus(Oda));
 
-let calculateTotalSalary = function (employee) { 
+const calculateTotalSalary = function (employee) { 
     return employee.salary + calculateBonus(employee);
 }
+
 console.log("----");
 console.log("Tong luong cua", Yamada.name, ":", calculateTotalSalary(Yamada));
 console.log("Tong luong cua", Tanaka.name, ":",calculateTotalSalary(Tanaka));
 console.log("Tong luong cua", Oda.name, ":",calculateTotalSalary(Oda));
 
+const calculateTax = (employee) => employee.salary*0.05;
+
 console.log("----");
-Yamada.info();
-Tanaka.info();
-Oda.info();
+console.log("Tax cua", Yamada.name, ":", calculateTax(Yamada));
+console.log("Tax cua", Tanaka.name, ":", calculateTax(Tanaka));
+console.log("Tax cua", Oda.name, ":", calculateTax(Oda));
+
+const actualSalary = (employee) => calculateTotalSalary(employee) - calculateTax(employee);
+
+console.log("----");
+console.log("Luong thuc te cua", Yamada.name, ":", actualSalary(Yamada));
+console.log("Luong thuc te cua", Tanaka.name, ":", actualSalary(Tanaka));
+console.log("Luong thuc te cua", Oda.name, ":", actualSalary(Oda));
