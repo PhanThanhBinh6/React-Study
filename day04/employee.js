@@ -50,8 +50,8 @@ console.log("Thong tin user id: 5");
 console.log(findUser5(listUser)); 
 
 
-function searchEmployee(employee,id){
-    return employee.find(employee => employee.id === id);
+function searchEmployee(employees,id){
+    return employees.find(employee => employee.id === id);
 }
 console.log("------------");
 console.log("Tim thong tin user id: 2");

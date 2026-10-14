@@ -1,25 +1,23 @@
-const employees = [
-    {
-        id: 1,
-        name: "Yamada",
-        department: "IT",
-        salary: 400000
-    },
-    {
-        id: 2,
-        name: "Tanaka",
-        department: "HR",
-        salary: 300000
-    },
-    {
-        id: 3,
-        name: "Oda",
-        department: "IT",
-        salary: 500000
-    }
-];
+import EmployeeCard from "./EmployeeCard";
 
-function EmployeeList(){
+
+function EmployeeList({employees}){
+    return(
+        <section className="employee-list">
+            <h2>Danh Sách Nhân Viên</h2>
+            <div className="employee-list-grid">
+                {employees.map((employee) => (
+                <EmployeeCard
+                key={employee.id}
+                employee={employee} />
+                ))}
+            </div>            
+        </section>
+    )
+}
+
+
+/*function EmployeeList(){
     return(
         <section>
             <h2>Danh sách nhân viên</h2>
@@ -37,6 +35,6 @@ function EmployeeList(){
             </ul>
         </section>
     );
-}
+}*/
 
 export default EmployeeList;
